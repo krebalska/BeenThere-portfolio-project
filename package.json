@@ -1,0 +1,15 @@
+{
+  "name": "beenthere",
+  "version": "1.0.0",
+  "description": "BeenThere is my own idea of portfolio project relying on my HTML, CSS and JS skills.",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "BeenThere"
+  },
+  "author": "Klaudia Rębalska",
+  "license": "ISC"
+}
