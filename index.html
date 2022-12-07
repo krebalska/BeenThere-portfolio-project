@@ -30,6 +30,7 @@
 
     <title>BeenThere - mark your wonders</title>
   </head>
+
   <header>
     <nav class="nav-container">
       <img
@@ -56,6 +57,47 @@
         </li>
       </ul>
     </nav>
+    <div class="log-in">
+      <ion-icon class="icon-close" name="close-outline"></ion-icon>
+      <form class="login-form">
+        <div class="login-title">Create an account</div>
+        <div class="login">
+          <label for="Name">Name</label>
+          <input
+            class="login-name"
+            type="text"
+            placeholder="Type your name..."
+            required
+          />
+        </div>
+
+        <div class="login">
+          <label for="email">E-mail</label>
+          <input
+            class="login-email"
+            type="email"
+            placeholder="example@email.com"
+            required
+          />
+          </div>
+          <div class="login">
+            <label for="passw">Password</label>
+            <input
+              class="login-passw"
+              type="password"
+              placeholder=""
+              required
+            />
+            
+          </div>
+          <div class="required">
+            Passwords must contain at least eight characters, including at least <br>
+            1 letter and 1 number.
+          </div>
+          <button class="btn-signup">Sign Up!</button>
+        </div>
+      </form>
+    </div>
   </header>
   <body>
     <div class="hero-container">
@@ -111,31 +153,6 @@
           alt="photo of happy people marking their wonders"
           src="photos/hero-photos/pexels-kampus-production-7476934.jpg"
         />
-        <!-- <img
-          class="hero-photo"
-          alt="photo of happy people marking their wonders"
-          src="photos/hero-photos/pexels-andrea-piacquadio-972884.jpg"
-        />
-        <img
-          class="hero-photo"
-          alt="photo of happy people marking their wonders"
-          src="hero-photos/pexels-cottonbro-studio-7507963.jpg"
-        />
-        <img
-          class="hero-photo"
-          alt="photo of happy people marking their wonders"
-          src="hero-photos/pexels-gpress-info-12987820.jpg"
-        />
-        <img
-          class="hero-photo"
-          alt="photo of happy people marking their wonders"
-          src="hero-photos/pexels-koolshooters-8531232.jpg"
-        />
-        <img
-          class="hero-photo"
-          alt="photo of happy people marking their wonders"
-          src="hero-photos/pexels-tima-miroshnichenko-6831051.jpg"
-        /> -->
       </div>
     </div>
     <div class="info-container" id="info-container">
@@ -143,9 +160,12 @@
       <h3 class="infos">
         Choose form several colours to pin your memories in an eternal map
       </h3>
-      <div class="info-comment">
-        <p><b>Black pin</b> to pin</p>
+      <div class="bubble-black bubble-hidden">
+        <div class="info-comment left" contenteditable>
+          Use <b>black pin</b> to mark your
+        </div>
       </div>
+
       <div class="imgs-colors">
         <img
           class="adjust img-pin"
