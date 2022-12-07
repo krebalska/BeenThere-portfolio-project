@@ -365,6 +365,13 @@ label {
   border-radius: 100%;
   cursor: pointer;
 }
+/*  */
+.testimonial-dot:hover {
+  border: 0.8rem solid #555;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
 .testimonial-dot-active {
   border: 0.8rem solid #555;
@@ -379,7 +386,63 @@ label {
   text-shadow: #069ee5 0.5px 0 2.5px;
 }
 
-/*  */
+footer {
+  margin-top: 65rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: rgb(150, 150, 150);
+}
 .footer {
-  height: 30rem;
+  width: 50rem;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-icons {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  align-self: center;
+  justify-self: center;
+}
+
+.media-icon {
+  align-self: center;
+  justify-self: center;
+  font-size: 4rem;
+  box-sizing: content-box;
+  text-decoration: none;
+  color: #555;
+}
+
+.footer-content,
+.footer-content-br {
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-self: center;
+  justify-self: center;
+}
+
+.footer-content-br {
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer-content a,
+.footer-content-br a {
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.copyrights {
+  align-self: center;
+  justify-self: center;
+  padding-top: 1.5rem;
 }
