@@ -185,6 +185,25 @@ a {
   font-size: 3rem;
   justify-self: center;
   text-shadow: #d8dfe2 0.5px 0 2.5px;
+  position: relative;
+}
+
+.info-comment {
+  position: absolute;
+  top: 100rem;
+  left: 25rem;
+  background-color: #d8dfe2;
+  box-shadow: -3px 3px 10px #555;
+  border-radius: 0.8rem;
+  height: 6rem;
+  width: 15rem;
+  z-index: 10;
+}
+
+.info-comment p {
+  padding-top: 1rem;
+  font-weight: 400;
+  text-align: center;
 }
 
 .imgs-colors {
@@ -193,6 +212,7 @@ a {
   row-gap: 5rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 15rem 15rem;
+  z-index: 8;
 }
 
 .adjust,
