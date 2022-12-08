@@ -58,7 +58,7 @@ label {
   background-color: #f4f4f4;
   z-index: 22;
   filter: blur(0);
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .login {
