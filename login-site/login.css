@@ -15,12 +15,22 @@ body {
   color: #555;
 }
 
+span {
+  text-shadow: #069ee5 0.5px 0 2.5px;
+}
+
+a {
+  text-decoration: none;
+  color: #555;
+}
+
 .img-cover {
   width: 100%;
   height: 100vh;
   margin: auto;
   background-size: cover;
   opacity: 0.9;
+  z-index: 1;
 }
 
 .form {
@@ -30,12 +40,15 @@ body {
   height: 60rem;
   width: 50rem;
   position: absolute;
-  top: 5rem;
-  right: 50rem;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* opacity: 0.85; */
+
+  z-index: 2;
 }
 
 input {
@@ -45,14 +58,29 @@ input {
   border-radius: 1rem;
 }
 
+select,
+input {
+  margin-top: 1rem;
+  padding: 0.8rem 7rem;
+  text-align: start;
+  border-radius: 0.8rem;
+}
+
 label {
   display: block;
-  text-align: center;
+  font-size: 1.5rem;
+  /* text-align: center; */
+}
+
+.login {
+  margin-top: 4rem;
+  justify-self: center;
+  align-self: center;
 }
 
 form {
   display: flex;
-  gap: 5rem;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -62,4 +90,35 @@ form {
   font-size: 6rem;
   flex-wrap: wrap;
   text-align: center;
+}
+
+.btn-login {
+  margin-top: 6rem;
+  padding: 1rem 6rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  color: rgb(65, 65, 65);
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+
+.btn-login:hover {
+  padding: 1rem 1.5rem;
+  box-shadow: 0 5px 5px rgb(36, 64, 125);
+  background-color: #31718f;
+  transform: translate(0, -15%);
+  transition: all 1s;
+  cursor: pointer;
+  color: #d8dfe2;
+}
+
+.btn-login:active,
+.btn-login:link,
+.btn-login:visited {
+  box-shadow: 0 0 rgb(36, 64, 125);
+  transform: translate(0, 0);
+  transition: all 1s;
+  cursor: pointer;
+  padding: 1rem 9rem;
+  color: rgb(65, 65, 65);
 }
