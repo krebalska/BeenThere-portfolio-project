@@ -12,7 +12,7 @@ colours:
 
 html {
   font-size: 62.5%;
-  background: linear-gradient(rgba(219, 227, 230, 0.608), #74d3ff62);
+  background: linear-gradient(265deg, rgba(219, 227, 230, 0.608), #74d3ff62);
 
   /* background-image: linear-gradient(
       265deg,
@@ -58,7 +58,7 @@ label {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 2.5rem;
-  background-color: #f4f4f4;
+  background-color: #f5f5f5;
   z-index: 22;
   filter: blur(0);
   visibility: hidden;
@@ -105,7 +105,7 @@ label {
   border-radius: 0.8rem;
   cursor: pointer;
   transform: translate(0, 0);
-  transition: all 1s;
+  /* transition: all 1s; */
 }
 
 .blur {
@@ -181,6 +181,7 @@ label {
   font-size: 2rem;
   text-decoration: none;
   transition: all 1s ease;
+  color: #555;
 }
 
 .join,
@@ -188,17 +189,15 @@ label {
 .join:visited {
   text-decoration: none;
   padding: 1rem 1.5rem;
-  background: linear-gradient(to right, #f9f1079b, #74d3ffa7);
+  background: linear-gradient(0deg, #fff, #74d3ffa7);
   /* border: 0.35rem solid #069ee5b4; */
   border: 0.25rem solid rgb(150, 150, 150);
   border-radius: 2rem;
-  color: #555;
   transition: all 1s ease;
 }
 
 .join:hover {
   padding: 1rem 1.5rem;
-
   box-shadow: -5px 5px 5px rgba(85, 85, 85, 0.516);
   border: 0.35rem solid #069ee5b4;
   background-color: #78c5e91d;
@@ -212,11 +211,11 @@ label {
   box-shadow: none;
   background-color: #069ee5;
   transform: translate(0, 0);
-  color: #fff;
+  color: rgb(64, 84, 149);
 }
 
 .join-link:active {
-  color: #fff;
+  color: rgb(64, 84, 149);
 }
 
 .hero-container {
@@ -456,6 +455,14 @@ label {
 .form-descr {
   height: 10rem;
   width: 59rem;
+}
+
+.btn-signup-link:active,
+.btn-signup-link:link,
+.btn-signup-link:hover,
+.btn-signup-link:visited {
+  text-decoration: none;
+  color: #555;
 }
 
 .form-btn {
