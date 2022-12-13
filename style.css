@@ -154,7 +154,27 @@ label {
 }
 
 .nav-text {
-  list-style-type: none;
+  display: inline-block;
+  position: relative;
+  color: #069ee5;
+}
+
+.nav-text::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -0.5rem;
+  left: 0;
+  background-color: #069ee5;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-text:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .nav-word,
@@ -178,6 +198,7 @@ label {
 .join-link,
 .join-link:link,
 .join-link:visited {
+  list-style: none;
   font-size: 2rem;
   text-decoration: none;
   transition: all 1s ease;
@@ -187,6 +208,7 @@ label {
 .join,
 .join:link,
 .join:visited {
+  list-style: none;
   text-decoration: none;
   padding: 1rem 1.5rem;
   background: linear-gradient(0deg, #fff, #74d3ffa7);
@@ -264,9 +286,9 @@ label {
   text-shadow: #d8dfe2 0.5px 0 2.5px;
 }
 
-/* .bubble-hidden {
+.bubble-hidden {
   display: none;
-} */
+}
 
 .bubble-black {
   position: absolute;
@@ -328,7 +350,7 @@ label {
   font-size: 1.8rem;
   line-height: 2.4rem;
   font-weight: 400;
-  width: 20rem;
+  width: 28rem;
   background: #fff;
   border-radius: 4rem;
   padding: 2.4rem;
@@ -648,6 +670,20 @@ footer {
   font-size: 1.7rem;
   font-weight: 400;
   text-decoration: none;
+}
+
+.footer-link,
+.footer-link:link,
+.footer-link:visited {
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #0d6893;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
 .copyrights {
