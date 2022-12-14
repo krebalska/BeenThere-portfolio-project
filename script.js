@@ -2,18 +2,94 @@
 const btnJoin = document.querySelector(".join");
 const btnJoinLink = document.querySelector(".join-link");
 const signUpForm = document.querySelector(".sign-up");
+const header = document.querySelector("header");
 const containerBlur = document.querySelector(".container");
 const closeSignUpForm = document.querySelector(".icon-close");
 const heroContainer = document.querySelector(".hero-container");
 const infoContainer = document.querySelector(".info-container");
 const tryContainer = document.querySelector(".try-container");
 const testimonialContainer = document.querySelector(".testimonial-container");
+const nav = document.querySelector(".nav-list");
+const logo = document.querySelector(".img-logo");
+const logoName = document.querySelector(".img-name");
+
+/////////////////////////
+//scrolling
+document.querySelector(".nav-list").addEventListener("click", function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains("nav-word")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+//menu fade
+const handleHover = function (e) {
+  if (e.target.classList.contains("nav-list")) {
+    const link = e.target;
+    const siblings = link
+      .closest(".nav-container")
+      .querySelectorAll(".nav-word");
+    const logo = link.closest(".nav-container").querySelector(".img-logo");
+
+    siblings.forEach((el) => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+nav.addEventListener("mouseover", handleHover.bind(0.5));
+nav.addEventListener("mouseover", handleHover.bind(1));
+
+///sticky nav
+
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+};
+
+const heroObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+
+heroObserver.observe(heroContainer);
 ///////////////////////////
 //updating year of copyrights
 const yearEl = document.querySelector(".copyrights-update");
 const currentYear = new Date().getFullYear();
-console.log(currentYear);
 yearEl.textContent = `${currentYear} Klaudia Rębalska`;
+
+///reveal container
+const allContainer = document.querySelectorAll(".containers");
+
+const revealContainer = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove("container-hidden");
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealContainer, {
+  root: null,
+  threshold: 0.15,
+});
+
+allContainer.forEach(function (container) {
+  sectionObserver.observe(container);
+  container.classList.add("container-hidden");
+});
 
 // //shining sign-up button
 
@@ -26,6 +102,15 @@ let interval = () => {
 };
 window.addEventListener("DOMContentLoaded", interval);
 
+///////
+//cookies
+const cookies = document.querySelector(".cookies");
+const btnCookies = document.querySelector(".cookies-btn");
+const closeCookies = function () {
+  cookies.style.display = "none";
+};
+
+btnCookies.addEventListener("click", closeCookies);
 // ///stop btn shine//
 // const stopBtnColor = function () {
 //   clearInterval(interval);
@@ -168,3 +253,62 @@ blue.addEventListener("mouseenter", bubbleColorComment.blue);
 blue.addEventListener("mouseleave", removeComment);
 white.addEventListener("mouseenter", bubbleColorComment.white);
 white.addEventListener("mouseleave", removeComment);
+
+////////////////////////
+//testimonial container
+const firstDot = document.querySelector(".dot-1");
+const secondDot = document.querySelector(".dot-2");
+const thirdDot = document.querySelector(".dot-3");
+const testimonialFirst = document.querySelector(".testimonial-box-1");
+const testimonialSecond = document.querySelector(".testimonial-box-2");
+const testimonialThird = document.querySelector(".testimonial-box-3");
+const testimonialDot = document.querySelector(".testimonial-dot");
+
+firstDot.addEventListener("click", function () {
+  console.log("FIRST");
+  if (testimonialFirst.classList.contains("active")) return;
+  else {
+    testimonialFirst.style.opacity = "1";
+    testimonialFirst.style.display = "grid";
+    firstDot.classList.add("dot-active");
+    thirdDot.classList.remove("dot-active");
+    secondDot.classList.remove("dot-active");
+
+    testimonialSecond.style.opacity = "0";
+    testimonialSecond.style.display = "none";
+    testimonialThird.style.opacity = "0";
+    testimonialThird.style.display = "none";
+  }
+});
+secondDot.addEventListener("click", function () {
+  console.log("SECOND");
+  if (testimonialSecond.classList.contains("active")) return;
+  else {
+    testimonialSecond.style.opacity = "1";
+    testimonialSecond.style.display = "grid";
+    secondDot.classList.add("dot-active");
+    firstDot.classList.remove("dot-active");
+    thirdDot.classList.remove("dot-active");
+
+    testimonialFirst.style.opacity = "0";
+    testimonialFirst.style.display = "none";
+    testimonialThird.style.opacity = "0";
+    testimonialThird.style.display = "none";
+  }
+});
+thirdDot.addEventListener("click", function () {
+  console.log("THIRD");
+  if (testimonialThird.classList.contains("active")) return;
+  else {
+    testimonialThird.style.opacity = "1";
+    testimonialThird.style.display = "grid";
+    thirdDot.classList.add("dot-active");
+    secondDot.classList.remove("dot-active");
+    firstDot.classList.remove("dot-active");
+
+    testimonialFirst.style.opacity = "0";
+    testimonialFirst.style.display = "none";
+    testimonialSecond.style.opacity = "0";
+    testimonialSecond.style.display = "none";
+  }
+});
