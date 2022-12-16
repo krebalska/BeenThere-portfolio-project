@@ -11,5 +11,8 @@
     "url": "BeenThere"
   },
   "author": "Klaudia Rębalska",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "hammerjs": "^2.0.8"
+  }
 }
