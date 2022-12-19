@@ -84,6 +84,65 @@ let interval = () => {
 window.addEventListener("DOMContentLoaded", interval);
 
 ///////////
+const imgs = document.querySelectorAll(".hero-photo");
+const imgsArray = Array.from(imgs);
+console.log(imgsArray);
+
+//////////////scrolling img on rightarrow
+// document.addEventListener("keydown", function (e) {
+//   if (e.key === "ArrowRight") {
+//     if (img.dataset.pos == -1) {
+//       //prev ->hide  1->5
+//       img.dataset.pos = 3;
+//     } else if (img.dataset.pos == 3) {
+//       //hide -> nextN 5->4
+//       img.dataset.pos = 2;
+//     } else if (img.dataset.pos == 2) {
+//       //nextN -> next 4->3
+//       img.dataset.pos = 1;
+//     } else if (img.dataset.pos == 1) {
+//       // next -> act 3->2
+//       img.dataset.pos = 0;
+//     } else if (img.dataset.pos == 0) {
+//       //act-> prev 2->1
+//       img.dataset.pos = -1;
+//     }
+//   }
+// });
+
+const carouselInfinite = function () {
+  imgsArray.forEach((img) => {
+    setInterval(() => {
+      // const prev = imgsArray.find((elem) => elem.dataset.pos === -1);
+      // const act = imgsArray.find((elem) => elem.dataset.pos === 0);
+      // const next = imgsArray.find((elem) => elem.dataset.pos === 1);
+      // const nextNext = imgsArray.find((elem) => elem.dataset.pos === 2);
+      // const hide = imgsArray.find((elem) => elem.dataset.pos === 3);
+      // const addedEl = document.createElement("img");
+      if (img.dataset.pos == -1) {
+        //prev ->hide  1->5
+        img.dataset.pos = "3";
+      } else if (img.dataset.pos == 3) {
+        //hide -> nextN 5->4
+        img.dataset.pos = "2";
+      } else if (img.dataset.pos == 2) {
+        //nextN -> next 4->3
+        img.dataset.pos = "1";
+      } else if (img.dataset.pos == 1) {
+        // next -> act 3->2
+        img.dataset.pos = "0";
+      } else if (img.dataset.pos == 0) {
+        //act-> prev 2->1
+        img.dataset.pos = "-1";
+      }
+    }, 3000);
+    console.log(img);
+    console.log(imgsArray);
+  });
+};
+carouselInfinite();
+
+////////
 //carousel photos
 const wait = (seconds) => {
   return new Promise((resolve) => {
@@ -91,88 +150,88 @@ const wait = (seconds) => {
   });
 };
 
-const carousel = () => {
-  const addedEl = document.createElement("img");
-  const selector = (selector) => {
-    return document.querySelector(selector);
-  };
+// const carousel = () => {
+//   const addedEl = document.createElement("img");
+//   const selector = (selector) => {
+//     return document.querySelector(selector);
+//   };
 
-  function next() {
-    if (selector(".hide")) {
-      selector(".hide").remove();
-    }
+//   function next() {
+//     if (selector(".hide")) {
+//       selector(".hide").remove();
+//     }
 
-    if (selector(".prev")) {
-      selector(".prev").classList.add("hide");
-      selector(".prev").classList.remove("prev");
-    }
+//     if (selector(".prev")) {
+//       selector(".prev").classList.add("hide");
+//       selector(".prev").classList.remove("prev");
+//     }
 
-    selector(".act").classList.add("prev");
-    selector(".act").classList.remove("act");
+//     selector(".act").classList.add("prev");
+//     selector(".act").classList.remove("act");
 
-    selector(".next").classList.add("act");
-    selector(".next").classList.remove("next");
+//     selector(".next").classList.add("act");
+//     selector(".next").classList.remove("next");
 
-    /* New Next */
+//     /* New Next */
 
-    selector(".new-next").classList.remove("new-next");
+//     selector(".new-next").classList.remove("new-next");
 
-    selector(".imagines-hero").appendChild(addedEl);
-    addedEl.classList.add("next", "new-next");
-  }
+//     selector(".imagines-hero").appendChild(addedEl);
+//     addedEl.classList.add("next", "new-next");
+//   }
 
-  function prev() {
-    selector(".new-next").remove();
+//   function prev() {
+//     selector(".new-next").remove();
 
-    /* Step */
+//     /* Step */
 
-    selector(".next").classList.add("new-next");
+//     selector(".next").classList.add("new-next");
 
-    selector(".act").classList.add("next");
-    selector(".act").classList.remove("act");
+//     selector(".act").classList.add("next");
+//     selector(".act").classList.remove("act");
 
-    selector(".prev").classList.add("act");
-    selector(".prev").classList.remove("prev");
+//     selector(".prev").classList.add("act");
+//     selector(".prev").classList.remove("prev");
 
-    /* New Prev */
+//     /* New Prev */
 
-    selector(".hide").classList.add("prev");
-    selector(".hide").classList.remove("hide");
+//     selector(".hide").classList.add("prev");
+//     selector(".hide").classList.remove("hide");
 
-    selector(".imagines-hero").insertBefore(
-      addedEl,
-      selector(".imagines-hero").firstChild
-    );
-    addedEl.classList.add("hide");
-  }
-  const slide = (element) => {
-    /* Next slide */
+//     selector(".imagines-hero").insertBefore(
+//       addedEl,
+//       selector(".imagines-hero").firstChild
+//     );
+//     addedEl.classList.add("hide");
+//   }
+//   const slide = (element) => {
+//     /* Next slide */
 
-    if (element.classList.contains("next")) {
-      next();
+//     if (element.classList.contains("next")) {
+//       next();
 
-      /* Previous slide */
-    } else if (element.classList.contains("prev")) {
-      prev();
-    }
-  };
+//       /* Previous slide */
+//     } else if (element.classList.contains("prev")) {
+//       prev();
+//     }
+//   };
 
-  const slider = selector(".imagines-hero"),
-    swipe = new Hammer(selector(".swipe"));
+//   const slider = selector(".imagines-hero"),
+//     swipe = new Hammer(selector(".swipe"));
 
-  slider.onclick = (event) => {
-    slide(event.target);
-  };
+//   slider.onclick = (event) => {
+//     slide(event.target);
+//   };
 
-  swipe.on("swipeleft", (ev) => {
-    next();
-  });
+//   swipe.on("swipeleft", (ev) => {
+//     next();
+//   });
 
-  swipe.on("swiperight", (ev) => {
-    prev();
-  });
-};
-carousel();
+//   swipe.on("swiperight", (ev) => {
+//     prev();
+//   });
+// };
+// carousel();
 
 //////////////////
 //cookies
