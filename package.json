@@ -13,6 +13,6 @@
   "author": "Klaudia Rębalska",
   "license": "ISC",
   "dependencies": {
-    "hammerjs": "^2.0.8"
+    "leaflet": "^1.9.3"
   }
 }

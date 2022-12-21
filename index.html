@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="photos/logo-icon.png" />
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -12,8 +13,14 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""
+    ></script>
     <script defer src="script.js"></script>
-    <link rel="icon" type="image/png" href="photos/logo-icon.png" />
+
     <link href="style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +35,7 @@
       rel="stylesheet"
     />
 
-    <title>BeenThere - mark your wonders</title>
+    <title>BeenThere // mark your wonders</title>
   </head>
 
   <header>
@@ -209,7 +216,55 @@
       <div class="containers try-container" id="try">
         <p class="try-text">Make it last forever</p>
         <div class="try-display">
-          <div class="try-map">MAP</div>
+          <div
+            class="try-map leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+            id="map"
+            tabindex="0"
+          >
+            <div class="leaflet-pane leaflet-map-pane">
+              <div class="leaflet-pane leaflet-tile-pane">
+                <div class="leaflet-layer">
+                  <div
+                    class="leaflet-tile-container leaflet-zoom-animated"
+                  ></div>
+                  <div
+                    class="leaflet-tile-container leaflet-zoom-animated"
+                  ></div>
+                </div>
+              </div>
+              <div class="leaflet-pane leaflet-overlay-pane"></div>
+              <div class="leaflet-pane leaflet-marker-pane">
+                <img
+                  src="./photos/marker-icon-2x.png"
+                  alt="Marker"
+                  class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive"
+                  tabindex="0"
+                />
+              </div>
+              <div class="leaflet-pane leaflet-tooltip-pane"></div>
+              <div class="leaflet-pane leaflet-popup-pane"></div>
+              <div class="leaflet-proxy leaflet-zoom-animated"></div>
+            </div>
+            <div class="leaflet-control-container">
+              <div class="leaflet-top leaflet-left">
+                <div class="leaflet-control-zoom leaflet-bar leaflet-control">
+                  <a class="leaflet-control-zoom-in" href="#">
+                    <span aria-hidden="true">+</span>
+                  </a>
+                  <a class="leaflet-control-zoom-out" href="#">
+                    <span aria-hidden="true">-</span>
+                  </a>
+                </div>
+                <div class="leaflet-top leaflet-right"></div>
+                <div class="leaflet-bottom leaflet-left"></div>
+                <div class="leaflet-bottom leaflet-right">
+                  <div class="leaflet-control-attribution leaflet-control">
+                    <a href="https://leafletjs.com"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <form class="try-form">
             <div class="form-title-div">
               <label for="title">Title</label>
@@ -302,16 +357,16 @@
       <footer>
         <div class="footer">
           <div class="media-icons">
-            <a href="#" class="media-icon">
+            <a href="https://www.facebook.com/" class="media-icon">
               <ion-icon name="logo-facebook"></ion-icon
             ></a>
-            <a href="#" class="media-icon">
+            <a href="https://www.instagram.com/" class="media-icon">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a href="#" class="media-icon">
+            <a href="https://twitter.com/" class="media-icon">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
-            <a href="#" class="media-icon">
+            <a href="https://www.linkedin.com/feed/" class="media-icon">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </div>

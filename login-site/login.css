@@ -52,7 +52,8 @@ a {
 }
 
 input {
-  pad: 1rem;
+  padding: 1rem;
+
   background-color: #f4f4f4;
   border: 0.35rem solid #555;
   border-radius: 1rem;
@@ -62,7 +63,7 @@ select,
 input {
   margin-top: 1rem;
   padding: 0.8rem 7rem;
-  text-align: start;
+  text-align: center;
   border-radius: 0.8rem;
 }
 
@@ -74,6 +75,7 @@ label {
 
 .login {
   margin-top: 4rem;
+
   justify-self: center;
   align-self: center;
 }

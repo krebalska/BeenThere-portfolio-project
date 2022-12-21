@@ -111,14 +111,8 @@ console.log(imgsArray);
 // });
 
 const carouselInfinite = function () {
-  imgsArray.forEach((img) => {
-    setInterval(() => {
-      // const prev = imgsArray.find((elem) => elem.dataset.pos === -1);
-      // const act = imgsArray.find((elem) => elem.dataset.pos === 0);
-      // const next = imgsArray.find((elem) => elem.dataset.pos === 1);
-      // const nextNext = imgsArray.find((elem) => elem.dataset.pos === 2);
-      // const hide = imgsArray.find((elem) => elem.dataset.pos === 3);
-      // const addedEl = document.createElement("img");
+  setInterval(() => {
+    imgsArray.forEach((img) => {
       if (img.dataset.pos == -1) {
         //prev ->hide  1->5
         img.dataset.pos = "3";
@@ -135,10 +129,8 @@ const carouselInfinite = function () {
         //act-> prev 2->1
         img.dataset.pos = "-1";
       }
-    }, 3000);
-    console.log(img);
-    console.log(imgsArray);
-  });
+    });
+  }, 3000);
 };
 carouselInfinite();
 
@@ -149,89 +141,6 @@ const wait = (seconds) => {
     setTimeout(resolve, seconds * 1000);
   });
 };
-
-// const carousel = () => {
-//   const addedEl = document.createElement("img");
-//   const selector = (selector) => {
-//     return document.querySelector(selector);
-//   };
-
-//   function next() {
-//     if (selector(".hide")) {
-//       selector(".hide").remove();
-//     }
-
-//     if (selector(".prev")) {
-//       selector(".prev").classList.add("hide");
-//       selector(".prev").classList.remove("prev");
-//     }
-
-//     selector(".act").classList.add("prev");
-//     selector(".act").classList.remove("act");
-
-//     selector(".next").classList.add("act");
-//     selector(".next").classList.remove("next");
-
-//     /* New Next */
-
-//     selector(".new-next").classList.remove("new-next");
-
-//     selector(".imagines-hero").appendChild(addedEl);
-//     addedEl.classList.add("next", "new-next");
-//   }
-
-//   function prev() {
-//     selector(".new-next").remove();
-
-//     /* Step */
-
-//     selector(".next").classList.add("new-next");
-
-//     selector(".act").classList.add("next");
-//     selector(".act").classList.remove("act");
-
-//     selector(".prev").classList.add("act");
-//     selector(".prev").classList.remove("prev");
-
-//     /* New Prev */
-
-//     selector(".hide").classList.add("prev");
-//     selector(".hide").classList.remove("hide");
-
-//     selector(".imagines-hero").insertBefore(
-//       addedEl,
-//       selector(".imagines-hero").firstChild
-//     );
-//     addedEl.classList.add("hide");
-//   }
-//   const slide = (element) => {
-//     /* Next slide */
-
-//     if (element.classList.contains("next")) {
-//       next();
-
-//       /* Previous slide */
-//     } else if (element.classList.contains("prev")) {
-//       prev();
-//     }
-//   };
-
-//   const slider = selector(".imagines-hero"),
-//     swipe = new Hammer(selector(".swipe"));
-
-//   slider.onclick = (event) => {
-//     slide(event.target);
-//   };
-
-//   swipe.on("swipeleft", (ev) => {
-//     next();
-//   });
-
-//   swipe.on("swiperight", (ev) => {
-//     prev();
-//   });
-// };
-// carousel();
 
 //////////////////
 //cookies
@@ -353,12 +262,6 @@ const bubbleColorComment = {
   </div>`;
     bubble.insertAdjacentHTML("afterbegin", html);
   },
-
-  // addBubleColor(color = this.colors) {
-  //   const html = color;
-  //   console.log(html);
-  //   infoContainer.insertAdjacentHTML("afterbegin", html);
-  // },
 };
 
 const removeComment = function () {
@@ -385,6 +288,70 @@ blue.addEventListener("mouseleave", removeComment);
 white.addEventListener("mouseenter", bubbleColorComment.white);
 white.addEventListener("mouseleave", removeComment);
 
+//////////////////////////////
+// MAP
+class Map {
+  constructor() {
+    // Get user's position
+    this._getPosition();
+  }
+
+  _getPosition() {
+    if (navigator.geolocation)
+      navigator.geolocation.getCurrentPosition(
+        this._loadMap.bind(this),
+        function () {
+          alert("Could not get your position");
+        }
+      );
+  }
+  _loadMap(position) {
+    const { latitude } = position.coords;
+    const { longitude } = position.coords;
+
+    const coords = [latitude, longitude];
+    const map = L.map("map").setView(coords, 11);
+
+    const tiles = L.tileLayer(
+      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }
+    ).addTo(map);
+
+    // const marker = L.marker(coords)
+    //   .addTo(map)
+    //   .bindPopup("<b>Hello world!</b><br />I am a popup.")
+    //   .openPopup();
+
+    const circle = L.circle(coords, {
+      color: "#069ee5",
+      fillColor: "none",
+      // fillOpacity: 0.2,
+      radius: 5000,
+    })
+      .addTo(map)
+      .bindPopup("That's the radius of your localization");
+
+    const popup = L.popup()
+      .setLatLng(coords)
+      .setContent("Choose place where would you like to mark your wonder!")
+      .openOn(map);
+
+    function onMapClick(e) {
+      popup
+        .setLatLng(e.latlng)
+        .setContent(`Add your wonder at ${e.latlng.toString()}`)
+        .openOn(map);
+    }
+
+    map.on("click", onMapClick);
+  }
+}
+
+const map = new Map();
 ////////////////////////
 //testimonial container
 const firstDot = document.querySelector(".dot-1");
