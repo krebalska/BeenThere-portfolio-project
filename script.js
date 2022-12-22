@@ -291,6 +291,7 @@ white.addEventListener("mouseleave", removeComment);
 //////////////////////////////
 // MAP
 class Map {
+  #pin;
   constructor() {
     // Get user's position
     this._getPosition();
@@ -310,6 +311,7 @@ class Map {
     const { longitude } = position.coords;
 
     const coords = [latitude, longitude];
+    console.log(coords);
     const map = L.map("map").setView(coords, 11);
 
     const tiles = L.tileLayer(
@@ -340,18 +342,58 @@ class Map {
       .setContent("Choose place where would you like to mark your wonder!")
       .openOn(map);
 
+    const title = document.querySelector(".form-title");
+    const description = document.querySelector(".form-descr");
+    const submit = document.querySelector(".form-btn-div");
+
     function onMapClick(e) {
       popup
         .setLatLng(e.latlng)
         .setContent(`Add your wonder at ${e.latlng.toString()}`)
         .openOn(map);
+      document.getElementById("form-title").focus();
+
+      submit.addEventListener("click", function (e) {
+        newFunction(e);
+        const marker = L.marker(coords).addTo(map);
+        e.forEach(
+          marker
+            .bindPopup(`${title.value}:<br>${description.value}`)
+            .openPopup()
+        );
+        title.value = description.value = "";
+      });
+
+      function newFunction(e) {
+        e.preventDefault();
+      }
     }
 
     map.on("click", onMapClick);
   }
+  _setLocalStorage() {
+    localStorage.setItem("pin", JSON.stringify(this.#pin));
+  }
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem("pin"));
+
+    if (!data) return;
+
+    this.#pin = data;
+
+    this.#pin.forEach((pin) => {
+      this.markPin(pin);
+    });
+  }
+
+  reset() {
+    localStorage.removeItem("pin");
+    location.reload();
+  }
 }
 
 const map = new Map();
+
 ////////////////////////
 //testimonial container
 const firstDot = document.querySelector(".dot-1");
