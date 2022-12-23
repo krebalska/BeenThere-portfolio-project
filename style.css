@@ -1468,3 +1468,57 @@ svg {
     font-size: 1.3rem;
   }
 }
+
+@media (max-width: 40em) /*640 px */ {
+  #scroller {
+    width: 60rem;
+    height: 30rem;
+    overflow-x: scroll;
+
+    scrollbar-width: thin;
+  }
+  .imgs-colors {
+    padding: 1rem;
+    gap: 0;
+    height: 10rem;
+  }
+
+  .bubble-red,
+  .bubble-purple,
+  .bubble-black,
+  .bubble-yellow,
+  .bubble-orange,
+  .bubble-green,
+  .bubble-blue,
+  .bubble-white {
+    top: 90rem;
+    left: 25rem;
+    z-index: 10;
+  }
+  .testimonial-box-1,
+  .testimonial-box-2,
+  .testimonial-box-3 {
+    width: 30rem;
+    height: 30rem;
+  }
+
+  .testimponial-img {
+    height: 5rem;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .testimonial-dots {
+    left: 45vw;
+  }
+  .try-form {
+    padding: 1rem 1rem;
+  }
+  .logo-name {
+    left: 6rem;
+    top: 6rem;
+  }
+}
