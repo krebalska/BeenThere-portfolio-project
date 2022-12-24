@@ -134,14 +134,6 @@ const carouselInfinite = function () {
 };
 carouselInfinite();
 
-////////
-//carousel photos
-const wait = (seconds) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, seconds * 1000);
-  });
-};
-
 //////////////////
 //cookies
 const cookies = document.querySelector(".cookies");
@@ -151,16 +143,6 @@ const closeCookies = function () {
 };
 
 btnCookies.addEventListener("click", closeCookies);
-// ///stop btn shine//
-// const stopBtnColor = function () {
-//   clearInterval(interval);
-//   interval = null;
-//   btnJoin.style.background = "##74d3ff";
-// };
-
-// btnJoin.addEventListener("click", stopBtnColor);
-// btnJoinLink.addEventListener("click", stopBtnColor);
-
 //////////////////////////////////////////////////////////////////////////////
 //display sign-up form
 const displaySignUpForm = function () {
