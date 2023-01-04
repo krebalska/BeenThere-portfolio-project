@@ -181,94 +181,57 @@ const bubble = document.querySelector(".bubble");
 
 const bubbleColorComment = {
   black() {
-    const html = `<div class="bubble-black">
-        <div class="info-comment left" contenteditable="false">
-        Use <b>black pin</b> to mark your dream destinations
-        </div>
-        </div> `;
-    bubble.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".bubble--black").classList.remove("bubble-hidden");
   },
   red() {
-    const html = `<div class="bubble-red">
-  <div class="info-comment left" contenteditable="false">
-  Use <b>red pin</b> to mark your romantic memories
-  </div>
-  </div> `;
-    bubble.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".bubble--red").classList.remove("bubble-hidden");
   },
   purple() {
-    const html = `<div class="bubble-purple">
-    <div class="info-comment left" contenteditable="false">
-    Use <b>purple pin</b> to mark your destinations that you will be soon
-    </div>
-    </div> `;
-    bubble.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".bubble--purple").classList.remove("bubble-hidden");
   },
   yellow() {
-    const html = `<div class="bubble-yellow">
-  <div class="info-comment left" contenteditable="false">
-  Use <b>yellow pin</b> to mark your family memories
-  </div>
-  </div>`;
-    bubble.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".bubble--yellow").classList.remove("bubble-hidden");
   },
   orange() {
-    const html = `<div class="bubble-orange">
-  <div class="info-comment left" contenteditable="false">
-  Use <b>orange pin</b> to mark your memories with your friends
-  </div>
-  </div> `;
-    bubble.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".bubble--orange").classList.remove("bubble-hidden");
   },
   green() {
-    const html = `<div class="bubble-green">
-  <div class="info-comment left" contenteditable="false">
-  Use <b>green pin</b> to mark your long trips
-  </div>
-  </div> `;
-    bubble.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".bubble--green").classList.remove("bubble-hidden");
   },
   blue() {
-    const html = `<div class="bubble-blue">
-  <div class="info-comment left" contenteditable="false">
-  Use <b>blue pin</b> to mark your best adventures
-  </div>
-  </div> `;
-    bubble.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".bubble--blue").classList.remove("bubble-hidden");
   },
   white() {
-    const html = `<div class="bubble-white">
-  <div class="info-comment left" contenteditable="false">
-  Use <b>white pin</b> to mark your other adventures
-  </div>
-  </div>`;
-    bubble.insertAdjacentHTML("afterbegin", html);
+    document.querySelector(".bubble--white").classList.remove("bubble-hidden");
   },
-};
-
-const removeComment = function () {
-  if (bubble) {
-    bubble.innerHTML = "";
-    infoContainer.parentNode.removeChild(bubble);
-  }
+  removeComment() {
+    document.querySelector(".bubble--black").classList.add("bubble-hidden");
+    document.querySelector(".bubble--red").classList.add("bubble-hidden");
+    document.querySelector(".bubble--purple").classList.add("bubble-hidden");
+    document.querySelector(".bubble--yellow").classList.add("bubble-hidden");
+    document.querySelector(".bubble--orange").classList.add("bubble-hidden");
+    document.querySelector(".bubble--green").classList.add("bubble-hidden");
+    document.querySelector(".bubble--blue").classList.add("bubble-hidden");
+    document.querySelector(".bubble--white").classList.add("bubble-hidden");
+  },
 };
 
 black.addEventListener("mouseenter", bubbleColorComment.black);
-black.addEventListener("mouseleave", removeComment);
+black.addEventListener("mouseleave", bubbleColorComment.removeComment);
 red.addEventListener("mouseenter", bubbleColorComment.red);
-red.addEventListener("mouseleave", removeComment);
+red.addEventListener("mouseleave", bubbleColorComment.removeComment);
 purple.addEventListener("mouseenter", bubbleColorComment.purple);
-purple.addEventListener("mouseleave", removeComment);
+purple.addEventListener("mouseleave", bubbleColorComment.removeComment);
 yellow.addEventListener("mouseenter", bubbleColorComment.yellow);
-yellow.addEventListener("mouseleave", removeComment);
+yellow.addEventListener("mouseleave", bubbleColorComment.removeComment);
 orange.addEventListener("mouseenter", bubbleColorComment.orange);
-orange.addEventListener("mouseleave", removeComment);
+orange.addEventListener("mouseleave", bubbleColorComment.removeComment);
 green.addEventListener("mouseenter", bubbleColorComment.green);
-green.addEventListener("mouseleave", removeComment);
+green.addEventListener("mouseleave", bubbleColorComment.removeComment);
 blue.addEventListener("mouseenter", bubbleColorComment.blue);
-blue.addEventListener("mouseleave", removeComment);
+blue.addEventListener("mouseleave", bubbleColorComment.removeComment);
 white.addEventListener("mouseenter", bubbleColorComment.white);
-white.addEventListener("mouseleave", removeComment);
+white.addEventListener("mouseleave", bubbleColorComment.removeComment);
 
 //////////////////////////////
 // MAP
