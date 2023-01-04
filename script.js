@@ -285,6 +285,9 @@ class Map {
         this._loadMap.bind(this),
         function () {
           alert("Could not get your position");
+          document.querySelector(".try-map").classList.add("map-fail-info");
+          document.querySelector(".try-map").textContent =
+            "🌎 🌍 🌏 Allow locations to try out the map!";
         }
       );
   }

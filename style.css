@@ -314,6 +314,7 @@ label {
   text-align: start;
   font-weight: 600;
   width: 30vw;
+  margin-left: 10rem;
   padding: 0 10rem;
   text-shadow: #069ee5 0.5px 0 2.5px;
 }
@@ -373,14 +374,15 @@ label {
 }
 
 .title {
-  padding: 1rem;
+  padding-top: 15rem;
   font-size: 5rem;
   text-align: center;
   text-shadow: #069ee5 0.5px 0 2.5px;
 }
 
 .infos {
-  padding: 0.4rem;
+  /* padding: 0.4rem; */
+  padding: 1rem;
   font-size: 3rem;
   text-align: center;
   margin: 0 auto;
@@ -524,7 +526,7 @@ label {
 
 .try-text {
   margin-top: 6.4rem;
-  padding-top: 3rem;
+  padding-top: 10rem;
   font-size: 5rem;
   justify-self: center;
   text-shadow: #069ee5 0.5px 0 2.5px;
@@ -538,6 +540,15 @@ label {
   width: 60rem;
   z-index: 8;
 }
+
+.map-fail-info {
+  background-color: #fff;
+  font-size: 6rem;
+  font-weight: 400;
+  padding: 7rem 10rem;
+  text-align: center;
+}
+
 #map {
   width: 600px;
   height: 400px;
@@ -737,7 +748,7 @@ label {
 
 .testimonial-title {
   text-align: center;
-  padding-top: 8.5rem;
+  padding-top: 15rem;
   margin: 2rem 10rem;
   font-size: 5rem;
   text-shadow: #069ee5 0.5px 0 2.5px;
@@ -1520,5 +1531,56 @@ svg {
   .logo-name {
     left: 6rem;
     top: 6rem;
+  }
+
+  .nav-log:visited,
+  .nav-log:active,
+  .nav-log:hover,
+  .nav-log:link,
+  .nav-log,
+  .nav-word,
+  .join-link,
+  .join-link:link,
+  .join-link:visited,
+  .join,
+  .join:link,
+  .join:visited,
+  .join:hover,
+  .join:active {
+    width: 6rem;
+    font-size: 1rem;
+    color: rgb(49, 49, 49);
+  }
+}
+
+@media (max-width: 25em) /*400 px */ {
+  .logo-img {
+    opacity: 0.2;
+    width: 10rem;
+    top: 1rem;
+  }
+
+  .logo-name {
+    font-size: 2rem;
+    top: 5rem;
+    left: 3rem;
+  }
+  .nav-log:visited,
+  .nav-log:active,
+  .nav-log:hover,
+  .nav-log:link,
+  .nav-log,
+  .nav-word,
+  .join-link,
+  .join-link:link,
+  .join-link:visited,
+  .join,
+  .join:link,
+  .join:visited,
+  .join:hover,
+  .join:active {
+    width: 6rem;
+    font-size: 1rem;
+    color: rgb(49, 49, 49);
   }
 }
