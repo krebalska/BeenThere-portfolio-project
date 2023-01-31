@@ -996,10 +996,16 @@ svg {
 
 @media (max-width: 40em) /*640 px */ {
   #scroller {
-    width: 60rem;
+    padding-left: 30rem;
+    margin: 2rem auto;
+    width: 30rem;
     height: 30rem;
     overflow-x: scroll;
     scrollbar-width: thin;
+  }
+
+  .logo-name {
+    z-index: 10;
   }
 
   .sign-up {
@@ -1013,22 +1019,26 @@ svg {
   .imgs-colors {
     padding: 1rem;
     gap: 0;
-    height: 10rem;
+    height: 5rem;
   }
 
   .testimonial-box-1,
   .testimonial-box-2,
   .testimonial-box-3 {
-    width: 30rem;
-    height: 30rem;
+    width: 35rem;
+    height: 20rem;
+  }
+
+  .slogan {
+    margin: 0;
   }
 
   .testimponial-img {
-    height: 5rem;
+    height: 10rem;
   }
 
   .testimonial-text {
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.5rem;
   }
 
@@ -1036,8 +1046,32 @@ svg {
     left: 45vw;
   }
   .try-form {
-    padding: 1rem 1rem;
+    padding: 3rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem 10rem;
   }
+
+  .form-btn-div {
+    padding-top: 2rem;
+  }
+
+  .try-text,
+  .title,
+  .slogan,
+  .testimonial-title {
+    font-size: 4.5rem;
+  }
+
+  #map {
+    width: 350px;
+    height: 200px;
+  }
+
+  .form-descr {
+    height: 7rem;
+    width: 27rem;
+  }
+
   .logo-name {
     left: 6rem;
     top: 6rem;
